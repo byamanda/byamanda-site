@@ -3,12 +3,15 @@
 #########################
 FROM node:latest as builder
 
-COPY . /app
-WORKDIR /app
-
 ENV NODE_ENV production
 
-RUN npm ci
+WORKDIR /app
+
+COPY ./package.json /app 
+RUN npm install --production
+
+COPY . /app
+
 RUN npm run build
 
 #########################
