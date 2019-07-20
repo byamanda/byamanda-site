@@ -5,7 +5,9 @@ services:
     image: byamanda-reverse
     ports:
       - "80:80"
+    restart: always
   florals:
     build: ./florals
     image: byamanda-florals
+    restart: always
      
