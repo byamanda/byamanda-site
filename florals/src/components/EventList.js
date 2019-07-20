@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
 import Agenda from "./Agenda"
 import Calendar from "./Calendar"
 
@@ -11,35 +10,35 @@ const EventFooter = styled.div`
   margin: 1em;
 `
 
-const ViewToggleContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-bottom: 1em;
-`
+// const ViewToggleContainer = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: flex-end;
+//   margin-bottom: 1em;
+// `
 
-const ViewToggle = styled.button`
-  font-size: 1em;
-  padding: 1em;
-  outline: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-  border: calc(1em / 12) solid ${props => props.theme.colors.primary};
+// const ViewToggle = styled.button`
+//   font-size: 1em;
+//   padding: 1em;
+//   outline: none;
+//   font-weight: bold;
+//   cursor: pointer;
+//   transition: all 0.3s;
+//   border: calc(1em / 12) solid ${props => props.theme.colors.primary};
 
-  :hover {
-    background-color: ${props => props.theme.colors.primary};
-  }
+//   :hover {
+//     background-color: ${props => props.theme.colors.primary};
+//   }
 
-  ${props =>
-    props.active
-      ? css`
-          background-color: ${props.theme.colors.primary};
-        `
-      : css`
-          background-color: transparent;
-        `}
-`
+//   ${props =>
+//     props.active
+//       ? css`
+//           background-color: ${props.theme.colors.primary};
+//         `
+//       : css`
+//           background-color: transparent;
+//         `}
+// `
 
 const VIEWS = {
   AGENDA: 0,

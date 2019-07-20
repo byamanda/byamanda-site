@@ -7,16 +7,9 @@ export const withWindow = PageComponent => {
     constructor(props) {
       super(props)
 
-      if (typeof window !== `undefined`) {
-        this.state = {
-          width: window.innerWidth,
-          scroll: window.pageYOffset
-        }
-      } else {
-        this.state = {
-          width: DEFAULT_WIDTH,
-          scroll: 0
-        }
+      this.state = {
+        width: DEFAULT_WIDTH,
+        scroll: 0
       }
 
       this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
@@ -26,6 +19,11 @@ export const withWindow = PageComponent => {
     componentDidMount() {
       window.addEventListener("resize", this.updateWindowDimensions)
       window.addEventListener("scroll", this.updateScrollLocation)
+        
+      this.setState({
+        width: window.innerWidth,
+        scroll: window.pageYOffset
+      })
     }
 
     componentWillUnmount() {
@@ -47,20 +45,6 @@ export const withWindow = PageComponent => {
 
     render() {
       return <PageComponent window={this.state} {...this.props} />
-    }
-  }
-}
-
-export const delayUnmount = Component => {
-  return class extends React.Component {
-    constructor(props) {
-      super(props)
-
-      this.state = {}
-    }
-
-    render() {
-      return <Component {...this.props} />
     }
   }
 }

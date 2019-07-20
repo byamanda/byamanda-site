@@ -200,11 +200,13 @@ class Calendar extends React.Component {
       this.props.events[currentCopy.get("year")][currentCopy.get("month")]
     let eventIndex = 0
 
-    for (var i = 0; i < beginningOffset; i++) {
+    let i;
+
+    for (i = 0; i < beginningOffset; i++) {
       items.push(<CalendarItem key={`ci-${i}`} grayedout />)
     }
 
-    for (var i = 0; i < numberOfDays; i++) {
+    for (i = 0; i < numberOfDays; i++) {
       let hasEvent = null
       let eventCount = []
       while (

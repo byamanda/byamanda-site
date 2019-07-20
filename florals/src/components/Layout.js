@@ -56,7 +56,7 @@ const Layout = props => {
       <BaseStyle />
 
       <header>
-        <Navigation key={small} mobile={small} links={LINKS}>
+        <Navigation key={small} links={LINKS}>
           <BaseLink to="/">
             <Logo size="small" />
           </BaseLink>

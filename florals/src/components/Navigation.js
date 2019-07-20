@@ -7,37 +7,34 @@ import { FaBars, FaTimes } from "react-icons/fa"
 
 const Menu = styled.ul`
   position: fixed;
-  z-index: 2;
-  padding: 1em;
-  background-color: white;
   top: 0;
   left: 0;
-  bottom: 0;
   margin: 0;
+  padding: 1em;
+  z-index: 2;
+  background-color: white;
+
+  display: flex;
   width: 100%;
-  max-width: 450px;
+  max-width: 100%;
+  height: calc(100px + 2em);
+  justify-content: space-between;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
-  overflow: scroll;
 
-  @media screen and (min-width: 900px) {
-    background-color: rgba(255, 255, 255);
-  }
+  @media screen and (max-width: 900px) {
+    bottom: 0;
+    display: block;
+    height: auto;
+    max-width: 450px;
+    transition: transform 0.3s ease-in-out;
+    overflow: scroll;
 
-  ${props =>
-    !props.menuOpen
-      ? css`
-          transform: translate(-110%);
-        `
-      : ``}
-
-  @media screen and (min-width: 900px) {
-    bottom: auto;
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-    height: calc(100px + 2em);
-    justify-content: space-between;
+    ${props =>
+      !props.menuOpen
+        ? css`
+            transform: translate(-110%);
+          `
+        : ``}
   }
 `
 
@@ -57,17 +54,21 @@ const Backdrop = styled.div`
   bottom: 0;
   background-color: black;
   transition: opacity 0.3s;
+  display: none;
 
-  ${props =>
-    props.show
-      ? css`
-          pointer-events: all;
-          opacity: 0.5;
-        `
-      : css`
-          pointer-events: none;
-          opacity: 0;
-        `}
+  @media screen and (max-width: 900px){
+    display: block;
+    ${props =>
+      props.show
+        ? css`
+            pointer-events: all;
+            opacity: 0.5;
+          `
+        : css`
+            pointer-events: none;
+            opacity: 0;
+          `}
+  }
 `
 
 const MenuItem = styled.li`
@@ -139,7 +140,7 @@ class Navigation extends React.Component {
     super(props)
 
     this.state = {
-      menuOpen: !props.mobile,
+      menuOpen: false,
     }
   }
 
@@ -158,7 +159,7 @@ class Navigation extends React.Component {
 
         <Backdrop
           onClick={e => this.setState({ menuOpen: false })}
-          show={this.props.mobile && this.state.menuOpen}
+          show={this.state.menuOpen}
         />
 
         <PhantomMenu />
@@ -183,7 +184,6 @@ Navigation.propTypes = {
       url: PropTypes.string,
     })
   ),
-  mobile: PropTypes.bool,
 }
 
 Navigation.defaultProps = {

@@ -18,7 +18,7 @@ const rootStyles = css`
   position: relative;
 
   @media screen and (max-width: 600px) {
-    height: 95vh;
+    height: 90vh;
   }
 `
 
@@ -243,7 +243,6 @@ class Carousel extends React.Component {
             <CarouselIndexGroup>{quickMoveButtons}</CarouselIndexGroup>
           </>
         ) : null}
-        }
       </div>
     )
   }
