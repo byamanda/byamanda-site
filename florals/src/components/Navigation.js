@@ -100,13 +100,13 @@ const MenuClose = styled.div`
 
 const Toggle = styled.div`
   position: fixed;
-  right: 0.5em;
+  right: 1em;
   bottom: 5.5em;
   z-index: 2;
   background-color: ${props => props.theme.colors.primary};
   color: white;
-  width: 75px;
-  height: 75px;
+  width: 85px;
+  height: 85px;
   border-radius: 100px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -146,7 +146,7 @@ class Navigation extends React.Component {
 
   render() {
     let navItems = this.props.links.map(l => (
-      <BaseLink to={l.url} key={l.title}>
+      <BaseLink to={l.url} key={l.title} onClick={e => this.setState({ menuOpen: false })}>
         <MenuItem>{l.title}</MenuItem>
       </BaseLink>
     ))
