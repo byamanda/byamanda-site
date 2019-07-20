@@ -1,0 +1,11 @@
+version: '3'
+services:
+  reverseproxy:
+    build: ./reverseproxy
+    image: byamanda-reverse
+    ports:
+      - "3001:8081"
+  florals:
+    build: ./florals
+    image: byamanda-florals
+     
