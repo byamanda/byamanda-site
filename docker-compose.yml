@@ -25,7 +25,6 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - web-root:/var/www/html
-    restart: unless-stopped
     command: certonly --webroot --webroot-path=/var/www/html --email joshrasmussen34@gmail.com --agree-tos --no-eff-email --staging -d byamanda.design
     depends_on:
       - reverseproxy
