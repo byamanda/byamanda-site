@@ -6,12 +6,9 @@ FROM node:latest as builder
 ENV NODE_ENV production
 
 WORKDIR /app
-
-COPY ./package.json /app 
-RUN npm install --production
-
 COPY . /app
 
+RUN npm ci
 RUN npm run build
 
 #########################
