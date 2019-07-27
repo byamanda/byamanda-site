@@ -29,6 +29,14 @@ services:
     depends_on:
       - reverseproxy
 
+  home:
+    build: ./home
+    image: byamanda-home
+    container_name: home 
+    restart: unless-stopped 
+    networks: 
+      - byamanda-network
+
   florals:
     build: ./florals
     image: byamanda-florals
