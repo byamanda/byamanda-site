@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans+Condensed:300&display=swap');
+
+html,
+body {
+  color: #505050;
+  font-family: 'Open Sans Condensed';
+  font-size: 20px;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1.5em;
+}
+
+a {
+  color: #505050;
+  text-decoration: none;
+}
+
+#main {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25%;
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-image: url(../images/header.svg);
+  background-size: auto 100%;
+  background-position: center -1em;
+  background-repeat: repeat-x;
+  padding: 1em;
+}
+
+.greeting {
+  font-size: 3em;
+  font-weight: bold;
+  font-family: 'Amatic SC', sans-serif;
+}
+
+.tagline {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.website {
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  flex: 1 1 auto;
+
+  height: 100%;
+  width: 50%;
+  position: relative;
+
+  transition: width 0.3s;
+}
+
+.website a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.website:hover {
+  width: 80%;
+}
+
+.website__title {
+  font-size: 3em;
+  font-family: 'Amatic SC';
+  text-shadow: 0 2px 3px white;
+  color: #505050;
+  font-weight: bold;
+}
+
+.website__description {
+  color: white;
+  font-weight: bold;
+}
+
+.website__filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fdd5d5;
+  opacity: 0.6;
+}
+
+#florals {
+  background-image: url(../images/banner-v1.png);
+}
+
+#facepainting {
+  background-image: url(../images/facepainting1.jpg);
+}
