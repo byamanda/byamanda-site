@@ -28,6 +28,29 @@ services:
     command: certonly --webroot --webroot-path=/var/www/html --email joshrasmussen34@gmail.com --agree-tos --no-eff-email --staging -d byamanda.design -d florals.byamanda.design
     depends_on:
       - reverseproxy
+  
+  db:
+    restart: always
+    image: postgres
+    environment:
+      POSTGRES_DB: byamanda-db
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports: 
+      - 5432:5432
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    networks:
+      - byamanda-network
+
+  backend:
+    build: ./backend
+    image: byamanda-backend
+    networks:
+      - byamanda-network
+    environment: 
+      - DB_PASSWORD
+    depends_on: 
+      - db
 
   home:
     build: ./home
@@ -46,6 +69,7 @@ services:
       - byamanda-network
 
 volumes:
+  dbdata:
   certbot-etc:
   certbot-var:
   web-root:

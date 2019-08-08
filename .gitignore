@@ -53,6 +53,7 @@ typings/
 
 # dotenv environment variables file
 .env.*
+.env
 
 # gatsby files
 .cache/
@@ -62,8 +63,12 @@ public
 .DS_Store
 
 # Yarn
-yarn-error.log
+yarn-error.logx
 .pnp/
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+.gradle
+bin 
+build 
